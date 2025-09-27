@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'app/core/theme/app_theme.dart';
 import 'app/modules/splash/views/splash_view.dart';
 import 'app/modules/home/controllers/home_controller.dart';
+import 'app/modules/home/controllers/main_controller.dart';
 import 'app/modules/generate/controllers/generate_controller.dart';
 import 'app/modules/gallery/controllers/gallery_controller.dart';
 import 'app/modules/library/controllers/library_controller.dart';
@@ -33,7 +34,7 @@ class DreamArtAI extends StatelessWidget {
   Widget build(BuildContext context) {
     // Initialize all controllers at startup
     _initializeControllers();
-    
+
     return GetMaterialApp(
       title: 'Dream Art AI',
       debugShowCheckedModeBanner: false,
@@ -48,6 +49,7 @@ class DreamArtAI extends StatelessWidget {
 
   void _initializeControllers() {
     // Initialize all controllers at once to avoid binding issues
+    Get.put(MainController());
     Get.put(HomeController());
     Get.put(GenerateController());
     Get.put(GalleryController());

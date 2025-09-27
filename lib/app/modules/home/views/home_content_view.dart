@@ -8,25 +8,20 @@ import '../../../core/theme/app_theme.dart';
 import '../../../core/values/app_constants.dart';
 import '../controllers/home_controller.dart';
 
-class HomeView extends GetView<HomeController> {
-  const HomeView({super.key});
+class HomeContentView extends GetView<HomeController> {
+  const HomeContentView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: AnimatedGradientBackground(
-        child: SafeArea(
-          child: Column(
-            children: [
-              _buildHeader(),
-              Expanded(
-                child: _buildBody(),
-              ),
-            ],
+    return SafeArea(
+      child: Column(
+        children: [
+          _buildHeader(),
+          Expanded(
+            child: _buildBody(),
           ),
-        ),
+        ],
       ),
-      bottomNavigationBar: _buildBottomNavBar(),
     );
   }
 
@@ -54,7 +49,7 @@ class HomeView extends GetView<HomeController> {
                   ],
                 ),
                 child: const Icon(
-                  Icons.palette,
+                  Icons.palette_rounded,
                   color: Colors.white,
                   size: 24,
                 ),
@@ -71,6 +66,7 @@ class HomeView extends GetView<HomeController> {
                       style: TextStyle(
                         color: Colors.white70,
                         fontSize: 14,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                     Text(
@@ -89,7 +85,7 @@ class HomeView extends GetView<HomeController> {
               GlassContainer(
                 padding: const EdgeInsets.all(12),
                 child: Icon(
-                  Icons.notifications_outlined,
+                  Icons.notifications_none_rounded,
                   color: Colors.white,
                   size: 24,
                 ),
@@ -100,27 +96,32 @@ class HomeView extends GetView<HomeController> {
           const SizedBox(height: 20),
 
           // Search Bar
-          GlassContainer(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-            child: TextField(
-              controller: controller.searchController,
-              onChanged: controller.onSearchChanged,
-              decoration: InputDecoration(
-                hintText: 'Search prompts, styles, artists...',
-                hintStyle: TextStyle(color: Colors.white60),
-                border: InputBorder.none,
-                prefixIcon: Icon(Icons.search, color: Colors.white60),
-                suffixIcon: Obx(() => controller.isSearching.value
-                    ? IconButton(
-                        icon: Icon(Icons.clear, color: Colors.white60),
-                        onPressed: () {
-                          controller.searchController.clear();
-                          controller.onSearchChanged('');
-                        },
-                      )
-                    : const SizedBox()),
+          FadeInDown(
+            delay: const Duration(milliseconds: 100),
+            child: GlassContainer(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.search_rounded,
+                    color: Colors.white60,
+                    size: 20,
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: TextField(
+                      controller: controller.searchController,
+                      onChanged: controller.onSearchChanged,
+                      style: const TextStyle(color: Colors.white),
+                      decoration: const InputDecoration(
+                        hintText: 'Search AI art styles, prompts...',
+                        hintStyle: TextStyle(color: Colors.white60),
+                        border: InputBorder.none,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              style: TextStyle(color: Colors.white),
             ),
           ),
         ],
@@ -130,8 +131,7 @@ class HomeView extends GetView<HomeController> {
 
   Widget _buildBody() {
     return SingleChildScrollView(
-      padding:
-          const EdgeInsets.symmetric(horizontal: AppConstants.defaultPadding),
+      padding: const EdgeInsets.symmetric(horizontal: AppConstants.defaultPadding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -142,7 +142,7 @@ class HomeView extends GetView<HomeController> {
           _buildTrendingPrompts(),
           const SizedBox(height: 32),
           _buildRecentCreations(),
-          const SizedBox(height: 100), // Bottom padding for nav bar
+          const SizedBox(height: 100), // Space for bottom navigation
         ],
       ),
     );
@@ -150,6 +150,7 @@ class HomeView extends GetView<HomeController> {
 
   Widget _buildQuickActions() {
     return FadeInUp(
+      delay: const Duration(milliseconds: 100),
       duration: const Duration(milliseconds: 600),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -168,16 +169,16 @@ class HomeView extends GetView<HomeController> {
               Expanded(
                 child: _buildActionCard(
                   'Generate Art',
-                  Icons.auto_awesome,
+                  Icons.auto_awesome_rounded,
                   AppTheme.primaryGradient,
                   () => controller.navigateToGenerate(),
                 ),
               ),
-              const SizedBox(width: 12),
+              const SizedBox(width: 16),
               Expanded(
                 child: _buildActionCard(
                   'Explore Gallery',
-                  Icons.explore,
+                  Icons.explore_rounded,
                   AppTheme.secondaryGradient,
                   () => controller.navigateToGallery(),
                 ),
@@ -189,12 +190,11 @@ class HomeView extends GetView<HomeController> {
     );
   }
 
-  Widget _buildActionCard(String title, IconData icon, LinearGradient gradient,
-      VoidCallback onTap) {
+  Widget _buildActionCard(String title, IconData icon, Gradient gradient, VoidCallback onTap) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 120,
+        height: 100,
         decoration: BoxDecoration(
           gradient: gradient,
           borderRadius: BorderRadius.circular(16),
@@ -269,7 +269,7 @@ class HomeView extends GetView<HomeController> {
                 child: Text(
                   'See All',
                   style: TextStyle(
-                    color: AppTheme.primaryColor,
+                    color: AppTheme.accentColor,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -315,9 +315,34 @@ class HomeView extends GetView<HomeController> {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
-                  image: DecorationImage(
-                    image: CachedNetworkImageProvider(artwork.imageUrl),
+                  color: Colors.white10,
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: CachedNetworkImage(
+                    imageUrl: artwork.imageUrl,
                     fit: BoxFit.cover,
+                    width: double.infinity,
+                    placeholder: (context, url) => Container(
+                      color: Colors.white10,
+                      child: Center(
+                        child: Icon(
+                          Icons.image_outlined,
+                          color: Colors.white30,
+                          size: 30,
+                        ),
+                      ),
+                    ),
+                    errorWidget: (context, url, error) => Container(
+                      color: Colors.white10,
+                      child: Center(
+                        child: Icon(
+                          Icons.broken_image_outlined,
+                          color: Colors.white30,
+                          size: 30,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -393,11 +418,11 @@ class HomeView extends GetView<HomeController> {
               width: 40,
               height: 40,
               decoration: BoxDecoration(
-                gradient: AppTheme.primaryGradient,
+                gradient: AppTheme.accentGradient,
                 borderRadius: BorderRadius.circular(8),
               ),
               child: const Icon(
-                Icons.lightbulb_outline,
+                Icons.lightbulb_outline_rounded,
                 color: Colors.white,
                 size: 20,
               ),
@@ -414,7 +439,7 @@ class HomeView extends GetView<HomeController> {
             ),
             IconButton(
               icon: const Icon(
-                Icons.arrow_forward_ios,
+                Icons.arrow_forward_ios_rounded,
                 color: Colors.white60,
                 size: 16,
               ),
@@ -449,7 +474,7 @@ class HomeView extends GetView<HomeController> {
                 child: Text(
                   'View Library',
                   style: TextStyle(
-                    color: AppTheme.primaryColor,
+                    color: AppTheme.accentColor,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -488,55 +513,34 @@ class HomeView extends GetView<HomeController> {
       margin: EdgeInsets.only(left: isFirst ? 0 : 12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        image: DecorationImage(
-          image: CachedNetworkImageProvider(artwork.imageUrl),
-          fit: BoxFit.cover,
-        ),
+        color: Colors.white10,
       ),
-    );
-  }
-
-  Widget _buildBottomNavBar() {
-    return Container(
-      margin: const EdgeInsets.all(16),
-      child: GlassContainer(
-        padding: const EdgeInsets.symmetric(vertical: 8),
-        child: Obx(() => BottomNavigationBar(
-              currentIndex: controller.currentTabIndex.value,
-              onTap: controller.onTabChanged,
-              type: BottomNavigationBarType.fixed,
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              selectedItemColor: AppTheme.primaryColor,
-              unselectedItemColor: Colors.white60,
-              items: const [
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.home_outlined),
-                  activeIcon: Icon(Icons.home),
-                  label: 'Home',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.auto_awesome_outlined),
-                  activeIcon: Icon(Icons.auto_awesome),
-                  label: 'Generate',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.explore_outlined),
-                  activeIcon: Icon(Icons.explore),
-                  label: 'Gallery',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.bookmark_outline),
-                  activeIcon: Icon(Icons.bookmark),
-                  label: 'Library',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.person_outline),
-                  activeIcon: Icon(Icons.person),
-                  label: 'Profile',
-                ),
-              ],
-            )),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(12),
+        child: CachedNetworkImage(
+          imageUrl: artwork.imageUrl,
+          fit: BoxFit.cover,
+          placeholder: (context, url) => Container(
+            color: Colors.white10,
+            child: Center(
+              child: Icon(
+                Icons.image_outlined,
+                color: Colors.white30,
+                size: 30,
+              ),
+            ),
+          ),
+          errorWidget: (context, url, error) => Container(
+            color: Colors.white10,
+            child: Center(
+              child: Icon(
+                Icons.broken_image_outlined,
+                color: Colors.white30,
+                size: 30,
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

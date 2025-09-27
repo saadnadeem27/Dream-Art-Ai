@@ -50,7 +50,7 @@ class StyleData {
           name: 'Realistic',
           description: 'Photo-realistic AI generated images',
           previewUrl:
-              'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400',
+              'https://picsum.photos/400/400?random=101',
           category: 'Photography',
           tags: ['realistic', 'photo', 'detailed'],
         ),
@@ -59,7 +59,7 @@ class StyleData {
           name: 'Anime',
           description: 'Japanese animation style artwork',
           previewUrl:
-              'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400',
+              'https://picsum.photos/400/400?random=102',
           category: 'Animation',
           tags: ['anime', 'manga', 'japanese'],
         ),
@@ -68,7 +68,7 @@ class StyleData {
           name: 'Watercolor',
           description: 'Soft, flowing watercolor painting style',
           previewUrl:
-              'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400',
+              'https://picsum.photos/400/400?random=103',
           category: 'Painting',
           tags: ['watercolor', 'soft', 'artistic'],
         ),
@@ -77,7 +77,7 @@ class StyleData {
           name: 'Oil Painting',
           description: 'Classical oil painting technique',
           previewUrl:
-              'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400',
+              'https://picsum.photos/400/400?random=104',
           category: 'Painting',
           tags: ['oil', 'classical', 'painting'],
         ),
@@ -86,7 +86,7 @@ class StyleData {
           name: 'Digital Art',
           description: 'Modern digital artwork style',
           previewUrl:
-              'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400',
+              'https://picsum.photos/400/400?random=105',
           category: 'Digital',
           tags: ['digital', 'modern', 'art'],
         ),
@@ -95,7 +95,7 @@ class StyleData {
           name: 'Sketch',
           description: 'Hand-drawn sketch style',
           previewUrl:
-              'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400',
+              'https://picsum.photos/400/400?random=106',
           category: 'Drawing',
           tags: ['sketch', 'drawing', 'pencil'],
         ),
@@ -104,7 +104,7 @@ class StyleData {
           name: 'Abstract',
           description: 'Abstract artistic interpretation',
           previewUrl:
-              'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400',
+              'https://picsum.photos/400/400?random=107',
           category: 'Abstract',
           tags: ['abstract', 'artistic', 'creative'],
         ),
@@ -113,7 +113,7 @@ class StyleData {
           name: 'Surreal',
           description: 'Surrealistic dream-like imagery',
           previewUrl:
-              'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400',
+              'https://picsum.photos/400/400?random=108',
           category: 'Surreal',
           tags: ['surreal', 'dream', 'fantasy'],
           isPremium: true,
@@ -123,7 +123,7 @@ class StyleData {
           name: 'Cyberpunk',
           description: 'Futuristic cyberpunk aesthetic',
           previewUrl:
-              'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400',
+              'https://picsum.photos/400/400?random=109',
           category: 'Futuristic',
           tags: ['cyberpunk', 'futuristic', 'neon'],
           isPremium: true,
@@ -133,7 +133,7 @@ class StyleData {
           name: 'Vintage',
           description: 'Retro vintage style artwork',
           previewUrl:
-              'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400',
+              'https://picsum.photos/400/400?random=110',
           category: 'Vintage',
           tags: ['vintage', 'retro', 'old'],
         ),

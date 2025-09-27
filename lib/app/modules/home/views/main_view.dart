@@ -19,7 +19,7 @@ class MainView extends GetView<MainController> {
       body: AnimatedGradientBackground(
         child: Obx(() => IndexedStack(
               index: controller.currentTabIndex.value,
-              children: const [
+              children: [
                 HomeContentView(),
                 GenerateView(),
                 GalleryView(),
@@ -39,7 +39,7 @@ class MainView extends GetView<MainController> {
         delay: const Duration(milliseconds: 200),
         child: GlassContainer(
           padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-          borderRadius: 25,
+          borderRadius: BorderRadius.circular(25),
           blur: 20,
           child: Obx(() => BottomNavigationBar(
                 currentIndex: controller.currentTabIndex.value,
@@ -52,7 +52,7 @@ class MainView extends GetView<MainController> {
                 selectedFontSize: 12,
                 unselectedFontSize: 11,
                 iconSize: 24,
-                items: const [
+                items: [
                   BottomNavigationBarItem(
                     icon: Icon(Icons.home_outlined),
                     activeIcon: Icon(Icons.home_rounded),

@@ -110,7 +110,7 @@ class GenerateView extends GetView<GenerateController> {
                 ),
                 border: InputBorder.none,
                 counter: Obx(() => Text(
-                      '${controller.promptController.text.length}/${AppConstants.maxPromptLength}',
+                      '${controller.promptText.value.length}/${AppConstants.maxPromptLength}',
                       style: TextStyle(
                         color: Colors.white60,
                         fontSize: 12,
@@ -264,8 +264,8 @@ class GenerateView extends GetView<GenerateController> {
                                 : Colors.white.withOpacity(0.2),
                             width: isSelected ? 2 : 1,
                           ),
-                          gradient: isSelected 
-                              ? AppTheme.primaryGradient 
+                          gradient: isSelected
+                              ? AppTheme.primaryGradient
                               : AppTheme.glassGradient,
                         ),
                         child: Column(

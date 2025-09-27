@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import '../../home/views/home_view.dart';
+import '../../home/views/main_view.dart';
 
 class OnboardingController extends GetxController {
   final currentPage = 0.obs;
@@ -29,11 +29,11 @@ class OnboardingController extends GetxController {
     if (currentPage.value < onboardingData.length - 1) {
       currentPage.value++;
     } else {
-      Get.off(() => const HomeView());
+      Get.off(() => const MainView());
     }
   }
 
   void skipOnboarding() {
-    Get.off(() => const HomeView());
+    Get.off(() => const MainView());
   }
 }

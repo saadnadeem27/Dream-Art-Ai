@@ -2,23 +2,34 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
-  // Colors
-  static const Color primaryColor = Color(0xFF6C5CE7);
-  static const Color secondaryColor = Color(0xFFA29BFE);
-  static const Color accentColor = Color(0xFFDDA0DD);
+  // Modern Color Palette
+  static const Color primaryColor = Color(0xFF8B5CF6); // Purple
+  static const Color secondaryColor = Color(0xFF06B6D4); // Cyan
+  static const Color accentColor = Color(0xFFF59E0B); // Amber
   static const Color backgroundColor = Color(0xFF0F0F23);
   static const Color surfaceColor = Color(0xFF1A1A2E);
   static const Color cardColor = Color(0xFF16213E);
+  
+  // Additional Colors
+  static const Color successColor = Color(0xFF10B981);
+  static const Color warningColor = Color(0xFFEF4444);
+  static const Color infoColor = Color(0xFF3B82F6);
 
-  // Gradients
+  // Enhanced Gradients
   static const LinearGradient primaryGradient = LinearGradient(
-    colors: [Color(0xFF6C5CE7), Color(0xFFA29BFE)],
+    colors: [Color(0xFF8B5CF6), Color(0xFFEC4899)],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   );
 
   static const LinearGradient secondaryGradient = LinearGradient(
-    colors: [Color(0xFFDDA0DD), Color(0xFFFFB7C5)],
+    colors: [Color(0xFF06B6D4), Color(0xFF3B82F6)],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+  );
+
+  static const LinearGradient accentGradient = LinearGradient(
+    colors: [Color(0xFFF59E0B), Color(0xFFEF4444)],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   );
@@ -31,9 +42,9 @@ class AppTheme {
 
   static const LinearGradient glassGradient = LinearGradient(
     colors: [
+      Color(0x30FFFFFF),
       Color(0x20FFFFFF),
       Color(0x10FFFFFF),
-      Color(0x05FFFFFF),
     ],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,

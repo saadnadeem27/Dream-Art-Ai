@@ -7,6 +7,7 @@ import '../../../data/dummy_data.dart';
 
 class GenerateController extends GetxController {
   final promptController = TextEditingController();
+  final promptText = ''.obs;
   final isGenerating = false.obs;
   final selectedStyle = Rx<StyleModel?>(null);
   final selectedAspectRatio = 0.obs;
@@ -20,6 +21,11 @@ class GenerateController extends GetxController {
   void onInit() {
     super.onInit();
     loadData();
+
+    // Listen to text changes
+    promptController.addListener(() {
+      promptText.value = promptController.text;
+    });
 
     // Check if prompt was passed from another screen
     if (Get.arguments != null && Get.arguments['prompt'] != null) {
@@ -42,11 +48,12 @@ class GenerateController extends GetxController {
   }
 
   void onPromptChanged(String value) {
-    // Auto-save recent prompts
+    promptText.value = value;
   }
 
   void useRecentPrompt(String prompt) {
     promptController.text = prompt;
+    promptText.value = prompt;
   }
 
   Future<void> generateArtwork() async {
@@ -85,7 +92,7 @@ class GenerateController extends GetxController {
       id: DateTime.now().millisecondsSinceEpoch.toString(),
       prompt: promptController.text,
       imageUrl:
-          'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800',
+          'https://picsum.photos/800/600?random=${DateTime.now().millisecondsSinceEpoch}',
       style: selectedStyle.value!.name,
       createdAt: DateTime.now(),
       width: aspectRatio['width'],

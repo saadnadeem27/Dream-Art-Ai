@@ -7,7 +7,7 @@ class DummyData {
           prompt:
               'A majestic dragon soaring through a nebula filled with stars and cosmic dust, digital art style',
           imageUrl:
-              'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800',
+              'https://picsum.photos/800/600?random=1',
           style: 'Digital Art',
           createdAt: DateTime.now().subtract(const Duration(hours: 2)),
           width: 1024,
@@ -23,7 +23,7 @@ class DummyData {
           prompt:
               'A serene Japanese garden with cherry blossoms and a traditional wooden bridge, watercolor painting',
           imageUrl:
-              'https://images.unsplash.com/photo-1590736969955-71cc94901144?w=800',
+              'https://picsum.photos/800/600?random=2',
           style: 'Watercolor',
           createdAt: DateTime.now().subtract(const Duration(hours: 5)),
           width: 768,
@@ -39,7 +39,7 @@ class DummyData {
           prompt:
               'A cyberpunk cityscape at night with neon lights reflecting on wet streets',
           imageUrl:
-              'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800',
+              'https://picsum.photos/800/600?random=3',
           style: 'Cyberpunk',
           createdAt: DateTime.now().subtract(const Duration(hours: 8)),
           width: 1024,
@@ -55,7 +55,7 @@ class DummyData {
           prompt:
               'An ethereal forest spirit with glowing blue eyes surrounded by magical fireflies',
           imageUrl:
-              'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800',
+              'https://picsum.photos/800/600?random=4',
           style: 'Fantasy',
           createdAt: DateTime.now().subtract(const Duration(days: 1)),
           width: 768,
@@ -71,7 +71,7 @@ class DummyData {
           prompt:
               'A vintage portrait of a woman in 1920s fashion, oil painting style',
           imageUrl:
-              'https://images.unsplash.com/photo-1594736797933-d0641ba82332?w=800',
+              'https://picsum.photos/800/600?random=5',
           style: 'Oil Painting',
           createdAt: DateTime.now().subtract(const Duration(days: 1, hours: 3)),
           width: 512,
@@ -87,7 +87,7 @@ class DummyData {
           prompt:
               'Abstract geometric patterns in vibrant colors inspired by Mondrian',
           imageUrl:
-              'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=800',
+              'https://picsum.photos/800/600?random=6',
           style: 'Abstract',
           createdAt: DateTime.now().subtract(const Duration(days: 2)),
           width: 1024,
@@ -105,7 +105,7 @@ class DummyData {
           id: 'my1',
           prompt: 'A cozy cabin in a snowy forest during winter twilight',
           imageUrl:
-              'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800',
+              'https://picsum.photos/800/600?random=7',
           style: 'Realistic',
           createdAt: DateTime.now().subtract(const Duration(hours: 1)),
           width: 1024,
@@ -120,7 +120,7 @@ class DummyData {
           id: 'my2',
           prompt: 'Anime-style character with purple hair in a magical forest',
           imageUrl:
-              'https://images.unsplash.com/photo-1590736969955-71cc94901144?w=800',
+              'https://picsum.photos/800/600?random=8',
           style: 'Anime',
           createdAt: DateTime.now().subtract(const Duration(hours: 4)),
           width: 768,
@@ -135,7 +135,7 @@ class DummyData {
           id: 'my3',
           prompt: 'Steampunk airship floating above Victorian London',
           imageUrl:
-              'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800',
+              'https://picsum.photos/800/600?random=9',
           style: 'Steampunk',
           createdAt: DateTime.now().subtract(const Duration(days: 1)),
           width: 1024,
@@ -173,7 +173,7 @@ class DummyData {
         {
           'name': 'Alex Chen',
           'avatar':
-              'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100',
+              'https://picsum.photos/100/100?random=10',
           'followers': 12500,
           'artworks': 234,
           'badge': 'Master Artist',
@@ -181,7 +181,7 @@ class DummyData {
         {
           'name': 'Maria Rodriguez',
           'avatar':
-              'https://images.unsplash.com/photo-1494790108755-2616b612b641?w=100',
+              'https://picsum.photos/100/100?random=11',
           'followers': 8900,
           'artworks': 156,
           'badge': 'Rising Star',
@@ -189,7 +189,7 @@ class DummyData {
         {
           'name': 'David Kim',
           'avatar':
-              'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100',
+              'https://picsum.photos/100/100?random=12',
           'followers': 15200,
           'artworks': 378,
           'badge': 'AI Pioneer',
@@ -197,7 +197,7 @@ class DummyData {
         {
           'name': 'Sarah Johnson',
           'avatar':
-              'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100',
+              'https://picsum.photos/100/100?random=13',
           'followers': 6700,
           'artworks': 98,
           'badge': 'Creative Mind',
@@ -208,7 +208,7 @@ class DummyData {
         'name': 'John Doe',
         'email': 'john.doe@example.com',
         'avatar':
-            'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200',
+            'https://picsum.photos/200/200?random=14',
         'isPremium': false,
         'joinDate': DateTime.now().subtract(const Duration(days: 30)),
         'artworksCreated': 23,

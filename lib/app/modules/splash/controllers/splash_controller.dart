@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import '../../home/views/home_view.dart';
+import '../../home/views/main_view.dart';
 
 class SplashController extends GetxController {
   @override
@@ -10,7 +10,7 @@ class SplashController extends GetxController {
 
   void _navigateToNextScreen() {
     Future.delayed(const Duration(seconds: 2), () {
-      Get.off(() => const HomeView()); // Direct navigation to home
+      Get.off(() => const MainView()); // Direct navigation to home
     });
   }
 }

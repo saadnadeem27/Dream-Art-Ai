@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:animate_do/animate_do.dart';
 import '../../../widgets/glass_widgets.dart';
 import '../../../core/theme/app_theme.dart';
-import '../../home/views/home_view.dart';
+import '../../home/views/main_view.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -18,7 +18,7 @@ class _SplashViewState extends State<SplashView> {
     super.initState();
     // Navigate to home after 2 seconds
     Future.delayed(const Duration(seconds: 2), () {
-      Get.off(() => const HomeView());
+      Get.off(() => const MainView());
     });
   }
 
@@ -26,7 +26,7 @@ class _SplashViewState extends State<SplashView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: GestureDetector(
-        onTap: () => Get.off(() => const HomeView()),
+        onTap: () => Get.off(() => const MainView()),
         child: AnimatedGradientBackground(
           child: SafeArea(
             child: Center(
@@ -71,11 +71,12 @@ class _SplashViewState extends State<SplashView> {
                           AppTheme.primaryGradient.createShader(bounds),
                       child: Text(
                         'Dream Art AI',
-                        style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                              fontSize: 40,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
+                        style:
+                            Theme.of(context).textTheme.displayLarge?.copyWith(
+                                  fontSize: 40,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
                       ),
                     ),
                   ),
@@ -105,9 +106,9 @@ class _SplashViewState extends State<SplashView> {
                     child: Text(
                       'Tap to Continue',
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: Colors.white60,
-                        fontSize: 16,
-                      ),
+                            color: Colors.white60,
+                            fontSize: 16,
+                          ),
                     ),
                   ),
 
