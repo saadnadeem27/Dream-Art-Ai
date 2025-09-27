@@ -196,7 +196,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - 🚀 Flutter Developer & Mobile App Specialist
 - 💼 Passionate about creating beautiful, functional mobile applications
 - 🎯 Focus on modern UI/UX design and clean architecture
-- 📧 Email: saadnadeem27@example.com
+<!-- - 📧 Email: saadnadeem27@example.com -->
 
 ---
 
