@@ -28,7 +28,7 @@ class LibraryController extends GetxController {
     if (index != -1) {
       final updatedArtwork = artwork.copyWith(isFavorite: !artwork.isFavorite);
       myArtworks[index] = updatedArtwork;
-      
+
       if (updatedArtwork.isFavorite) {
         favorites.add(updatedArtwork);
       } else {
@@ -40,7 +40,7 @@ class LibraryController extends GetxController {
   void deleteArtwork(ArtworkModel artwork) {
     myArtworks.removeWhere((art) => art.id == artwork.id);
     favorites.removeWhere((art) => art.id == artwork.id);
-    
+
     Get.snackbar(
       'Deleted',
       'Artwork removed from library',

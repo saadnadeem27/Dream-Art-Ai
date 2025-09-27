@@ -105,9 +105,9 @@ class ProfileView extends GetView<ProfileController> {
                 ),
               ),
             ),
-            
+
             const SizedBox(height: 16),
-            
+
             // Name
             Text(
               profile['name'] ?? 'User Name',
@@ -117,21 +117,22 @@ class ProfileView extends GetView<ProfileController> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            
+
             const SizedBox(height: 8),
-            
+
             // Bio
             Text(
-              profile['bio'] ?? 'Digital artist passionate about AI-generated art',
+              profile['bio'] ??
+                  'Digital artist passionate about AI-generated art',
               style: TextStyle(
                 color: Colors.white70,
                 fontSize: 14,
               ),
               textAlign: TextAlign.center,
             ),
-            
+
             const SizedBox(height: 16),
-            
+
             // Edit Profile Button
             GradientButton(
               text: 'Edit Profile',
@@ -151,7 +152,8 @@ class ProfileView extends GetView<ProfileController> {
       return FadeInUp(
         delay: const Duration(milliseconds: 200),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: AppConstants.defaultPadding),
+          padding: const EdgeInsets.symmetric(
+              horizontal: AppConstants.defaultPadding),
           child: Row(
             children: [
               _buildStatCard('Artworks', '${profile['artworksCreated'] ?? 0}'),
@@ -201,7 +203,8 @@ class ProfileView extends GetView<ProfileController> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: AppConstants.defaultPadding),
+            padding: const EdgeInsets.symmetric(
+                horizontal: AppConstants.defaultPadding),
             child: Text(
               'Recent Artworks',
               style: TextStyle(
@@ -215,24 +218,25 @@ class ProfileView extends GetView<ProfileController> {
           SizedBox(
             height: 120,
             child: Obx(() => ListView.builder(
-              scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.symmetric(horizontal: AppConstants.defaultPadding),
-              itemCount: controller.recentArtworks.length,
-              itemBuilder: (context, index) {
-                final artwork = controller.recentArtworks[index];
-                return Container(
-                  width: 120,
-                  margin: EdgeInsets.only(right: 12),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    image: DecorationImage(
-                      image: CachedNetworkImageProvider(artwork.imageUrl),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                );
-              },
-            )),
+                  scrollDirection: Axis.horizontal,
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: AppConstants.defaultPadding),
+                  itemCount: controller.recentArtworks.length,
+                  itemBuilder: (context, index) {
+                    final artwork = controller.recentArtworks[index];
+                    return Container(
+                      width: 120,
+                      margin: EdgeInsets.only(right: 12),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        image: DecorationImage(
+                          image: CachedNetworkImageProvider(artwork.imageUrl),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    );
+                  },
+                )),
           ),
         ],
       ),
@@ -243,14 +247,16 @@ class ProfileView extends GetView<ProfileController> {
     return FadeInUp(
       delay: const Duration(milliseconds: 600),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: AppConstants.defaultPadding),
+        padding:
+            const EdgeInsets.symmetric(horizontal: AppConstants.defaultPadding),
         child: Column(
           children: [
             _buildMenuItem(Icons.palette, 'My Artworks', () {}),
             _buildMenuItem(Icons.favorite, 'Favorites', () {}),
             _buildMenuItem(Icons.share, 'Share Profile', () {}),
             _buildMenuItem(Icons.star, 'Upgrade to Premium', () {}),
-            _buildMenuItem(Icons.settings, 'Settings', controller.navigateToSettings),
+            _buildMenuItem(
+                Icons.settings, 'Settings', controller.navigateToSettings),
             _buildMenuItem(Icons.help, 'Help & Support', () {}),
           ],
         ),

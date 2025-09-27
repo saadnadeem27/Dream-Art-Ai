@@ -32,12 +32,13 @@ class OnboardingView extends GetView<OnboardingController> {
                   ),
                 ),
               ),
-              
+
               // Content
               Expanded(
                 child: Obx(() {
-                  final data = controller.onboardingData[controller.currentPage.value];
-                  
+                  final data =
+                      controller.onboardingData[controller.currentPage.value];
+
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 24.0),
                     child: Column(
@@ -66,25 +67,29 @@ class OnboardingView extends GetView<OnboardingController> {
                             ),
                           ),
                         ),
-                        
+
                         const SizedBox(height: 50),
-                        
+
                         // Title
                         FadeInUp(
-                          key: ValueKey('title_${controller.currentPage.value}'),
+                          key:
+                              ValueKey('title_${controller.currentPage.value}'),
                           duration: const Duration(milliseconds: 600),
                           child: Text(
                             data['title']!,
                             textAlign: TextAlign.center,
-                            style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .displayMedium
+                                ?.copyWith(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
                           ),
                         ),
-                        
+
                         const SizedBox(height: 24),
-                        
+
                         // Description
                         FadeInUp(
                           key: ValueKey('desc_${controller.currentPage.value}'),
@@ -93,10 +98,11 @@ class OnboardingView extends GetView<OnboardingController> {
                           child: Text(
                             data['description']!,
                             textAlign: TextAlign.center,
-                            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                              color: Colors.white70,
-                              height: 1.5,
-                            ),
+                            style:
+                                Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                      color: Colors.white70,
+                                      height: 1.5,
+                                    ),
                           ),
                         ),
                       ],
@@ -104,7 +110,7 @@ class OnboardingView extends GetView<OnboardingController> {
                   );
                 }),
               ),
-              
+
               // Bottom Navigation
               Padding(
                 padding: const EdgeInsets.all(24.0),
@@ -112,35 +118,38 @@ class OnboardingView extends GetView<OnboardingController> {
                   children: [
                     // Page Indicators
                     Obx(() => Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(
-                        controller.onboardingData.length,
-                        (index) => AnimatedContainer(
-                          duration: const Duration(milliseconds: 300),
-                          margin: const EdgeInsets.symmetric(horizontal: 4),
-                          width: controller.currentPage.value == index ? 24 : 8,
-                          height: 8,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(4),
-                            color: controller.currentPage.value == index
-                                ? AppTheme.primaryColor
-                                : Colors.white.withOpacity(0.3),
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: List.generate(
+                            controller.onboardingData.length,
+                            (index) => AnimatedContainer(
+                              duration: const Duration(milliseconds: 300),
+                              margin: const EdgeInsets.symmetric(horizontal: 4),
+                              width: controller.currentPage.value == index
+                                  ? 24
+                                  : 8,
+                              height: 8,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(4),
+                                color: controller.currentPage.value == index
+                                    ? AppTheme.primaryColor
+                                    : Colors.white.withOpacity(0.3),
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
-                    )),
-                    
+                        )),
+
                     const SizedBox(height: 32),
-                    
+
                     // Next Button
                     Obx(() => GradientButton(
-                      text: controller.currentPage.value == controller.onboardingData.length - 1
-                          ? 'Get Started'
-                          : 'Next',
-                      onPressed: controller.nextPage,
-                      width: double.infinity,
-                      height: 56,
-                    )),
+                          text: controller.currentPage.value ==
+                                  controller.onboardingData.length - 1
+                              ? 'Get Started'
+                              : 'Next',
+                          onPressed: controller.nextPage,
+                          width: double.infinity,
+                          height: 56,
+                        )),
                   ],
                 ),
               ),

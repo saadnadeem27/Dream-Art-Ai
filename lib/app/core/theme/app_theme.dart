@@ -9,26 +9,26 @@ class AppTheme {
   static const Color backgroundColor = Color(0xFF0F0F23);
   static const Color surfaceColor = Color(0xFF1A1A2E);
   static const Color cardColor = Color(0xFF16213E);
-  
+
   // Gradients
   static const LinearGradient primaryGradient = LinearGradient(
     colors: [Color(0xFF6C5CE7), Color(0xFFA29BFE)],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   );
-  
+
   static const LinearGradient secondaryGradient = LinearGradient(
     colors: [Color(0xFFDDA0DD), Color(0xFFFFB7C5)],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   );
-  
+
   static const LinearGradient backgroundGradient = LinearGradient(
     colors: [Color(0xFF0F0F23), Color(0xFF1A1A2E), Color(0xFF16213E)],
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
   );
-  
+
   static const LinearGradient glassGradient = LinearGradient(
     colors: [
       Color(0x20FFFFFF),

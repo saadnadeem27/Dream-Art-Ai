@@ -63,20 +63,21 @@ class LibraryView extends GetView<LibraryController> {
 
   Widget _buildTabBar() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: AppConstants.defaultPadding),
+      padding:
+          const EdgeInsets.symmetric(horizontal: AppConstants.defaultPadding),
       child: Obx(() => Row(
-        children: [
-          _buildTab('My Artworks', 0),
-          const SizedBox(width: 12),
-          _buildTab('Favorites', 1),
-        ],
-      )),
+            children: [
+              _buildTab('My Artworks', 0),
+              const SizedBox(width: 12),
+              _buildTab('Favorites', 1),
+            ],
+          )),
     );
   }
 
   Widget _buildTab(String title, int index) {
     final isSelected = controller.selectedTab.value == index;
-    
+
     return Expanded(
       child: GestureDetector(
         onTap: () => controller.selectTab(index),
@@ -84,9 +85,12 @@ class LibraryView extends GetView<LibraryController> {
           padding: const EdgeInsets.symmetric(vertical: 12),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
-            gradient: isSelected ? AppTheme.primaryGradient : AppTheme.glassGradient,
+            gradient:
+                isSelected ? AppTheme.primaryGradient : AppTheme.glassGradient,
             border: Border.all(
-              color: isSelected ? Colors.transparent : Colors.white.withOpacity(0.2),
+              color: isSelected
+                  ? Colors.transparent
+                  : Colors.white.withOpacity(0.2),
             ),
           ),
           child: Text(
@@ -106,14 +110,14 @@ class LibraryView extends GetView<LibraryController> {
     return Padding(
       padding: const EdgeInsets.all(AppConstants.defaultPadding),
       child: Obx(() {
-        final artworks = controller.selectedTab.value == 0 
-            ? controller.myArtworks 
+        final artworks = controller.selectedTab.value == 0
+            ? controller.myArtworks
             : controller.favorites;
-            
+
         if (artworks.isEmpty) {
           return _buildEmptyState();
         }
-        
+
         return GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
@@ -148,15 +152,17 @@ class LibraryView extends GetView<LibraryController> {
               border: Border.all(color: Colors.white.withOpacity(0.2)),
             ),
             child: Icon(
-              controller.selectedTab.value == 0 ? Icons.palette : Icons.favorite,
+              controller.selectedTab.value == 0
+                  ? Icons.palette
+                  : Icons.favorite,
               size: 50,
               color: Colors.white60,
             ),
           ),
           const SizedBox(height: 24),
           Text(
-            controller.selectedTab.value == 0 
-                ? 'No artworks yet' 
+            controller.selectedTab.value == 0
+                ? 'No artworks yet'
                 : 'No favorites yet',
             style: const TextStyle(
               color: Colors.white,
@@ -166,8 +172,8 @@ class LibraryView extends GetView<LibraryController> {
           ),
           const SizedBox(height: 8),
           Text(
-            controller.selectedTab.value == 0 
-                ? 'Create your first masterpiece!' 
+            controller.selectedTab.value == 0
+                ? 'Create your first masterpiece!'
                 : 'Start favoriting artworks you love',
             style: TextStyle(
               color: Colors.white60,
@@ -209,7 +215,9 @@ class LibraryView extends GetView<LibraryController> {
                           color: Colors.black.withOpacity(0.3),
                         ),
                         child: Icon(
-                          artwork.isFavorite ? Icons.favorite : Icons.favorite_border,
+                          artwork.isFavorite
+                              ? Icons.favorite
+                              : Icons.favorite_border,
                           color: artwork.isFavorite ? Colors.red : Colors.white,
                           size: 16,
                         ),

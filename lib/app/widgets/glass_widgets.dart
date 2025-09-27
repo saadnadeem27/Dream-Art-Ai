@@ -33,10 +33,11 @@ class GlassContainer extends StatelessWidget {
       margin: margin,
       decoration: BoxDecoration(
         borderRadius: borderRadius ?? BorderRadius.circular(16),
-        border: border ?? Border.all(
-          color: Colors.white.withOpacity(0.2),
-          width: 1,
-        ),
+        border: border ??
+            Border.all(
+              color: Colors.white.withOpacity(0.2),
+              width: 1,
+            ),
       ),
       child: ClipRRect(
         borderRadius: borderRadius ?? BorderRadius.circular(16),
@@ -94,10 +95,11 @@ class GradientButton extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: borderRadius ?? BorderRadius.circular(25),
         gradient: LinearGradient(
-          colors: colors ?? [
-            const Color(0xFF6C5CE7),
-            const Color(0xFFA29BFE),
-          ],
+          colors: colors ??
+              [
+                const Color(0xFF6C5CE7),
+                const Color(0xFFA29BFE),
+              ],
           begin: Alignment.centerLeft,
           end: Alignment.centerRight,
         ),
@@ -112,10 +114,12 @@ class GradientButton extends StatelessWidget {
       child: Material(
         color: Colors.transparent,
         child: InkWell(
-          borderRadius: (borderRadius ?? BorderRadius.circular(25)) as BorderRadius?,
+          borderRadius:
+              (borderRadius ?? BorderRadius.circular(25)) as BorderRadius?,
           onTap: onPressed,
           child: Container(
-            padding: padding ?? const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+            padding: padding ??
+                const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -126,11 +130,12 @@ class GradientButton extends StatelessWidget {
                 ],
                 Text(
                   text,
-                  style: textStyle ?? const TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: textStyle ??
+                      const TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
                 ),
               ],
             ),
@@ -154,7 +159,8 @@ class AnimatedGradientBackground extends StatefulWidget {
   });
 
   @override
-  State<AnimatedGradientBackground> createState() => _AnimatedGradientBackgroundState();
+  State<AnimatedGradientBackground> createState() =>
+      _AnimatedGradientBackgroundState();
 }
 
 class _AnimatedGradientBackgroundState extends State<AnimatedGradientBackground>
@@ -187,11 +193,12 @@ class _AnimatedGradientBackgroundState extends State<AnimatedGradientBackground>
         return Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: widget.colors ?? [
-                const Color(0xFF0F0F23),
-                const Color(0xFF1A1A2E),
-                const Color(0xFF16213E),
-              ],
+              colors: widget.colors ??
+                  [
+                    const Color(0xFF0F0F23),
+                    const Color(0xFF1A1A2E),
+                    const Color(0xFF16213E),
+                  ],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               transform: GradientRotation(_animation.value * 2 * 3.14159),

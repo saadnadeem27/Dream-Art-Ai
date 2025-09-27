@@ -11,7 +11,7 @@ class GenerateController extends GetxController {
   final selectedStyle = Rx<StyleModel?>(null);
   final selectedAspectRatio = 0.obs;
   final generationProgress = 0.0.obs;
-  
+
   final styles = <StyleModel>[].obs;
   final recentPrompts = <String>[].obs;
   final generatedArtworks = <ArtworkModel>[].obs;
@@ -20,7 +20,7 @@ class GenerateController extends GetxController {
   void onInit() {
     super.onInit();
     loadData();
-    
+
     // Check if prompt was passed from another screen
     if (Get.arguments != null && Get.arguments['prompt'] != null) {
       promptController.text = Get.arguments['prompt'];
@@ -84,7 +84,8 @@ class GenerateController extends GetxController {
     final newArtwork = ArtworkModel(
       id: DateTime.now().millisecondsSinceEpoch.toString(),
       prompt: promptController.text,
-      imageUrl: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800',
+      imageUrl:
+          'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800',
       style: selectedStyle.value!.name,
       createdAt: DateTime.now(),
       width: aspectRatio['width'],

@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import '../../../data/dummy_data.dart';
+import '../../settings/views/settings_view.dart';
 
 class ProfileController extends GetxController {
   final userProfile = {}.obs;
@@ -17,10 +18,11 @@ class ProfileController extends GetxController {
   }
 
   void navigateToSettings() {
-    Get.toNamed('/settings');
+    Get.to(() => const SettingsView());
   }
 
   void editProfile() {
-    Get.snackbar('Coming Soon', 'Profile editing will be available in the next update');
+    Get.snackbar(
+        'Coming Soon', 'Profile editing will be available in the next update');
   }
 }

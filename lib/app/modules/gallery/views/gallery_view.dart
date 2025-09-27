@@ -64,7 +64,8 @@ class GalleryView extends GetView<GalleryController> {
 
   Widget _buildSearchAndCategories() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: AppConstants.defaultPadding),
+      padding:
+          const EdgeInsets.symmetric(horizontal: AppConstants.defaultPadding),
       child: Column(
         children: [
           // Search Bar
@@ -82,42 +83,50 @@ class GalleryView extends GetView<GalleryController> {
               style: TextStyle(color: Colors.white),
             ),
           ),
-          
+
           const SizedBox(height: 16),
-          
+
           // Categories
           SizedBox(
             height: 40,
             child: Obx(() => ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: controller.categories.length,
-              itemBuilder: (context, index) {
-                final category = controller.categories[index];
-                final isSelected = controller.selectedCategory.value == category;
-                
-                return GestureDetector(
-                  onTap: () => controller.selectCategory(category),
-                  child: Container(
-                    margin: const EdgeInsets.only(right: 12),
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      gradient: isSelected ? AppTheme.primaryGradient : AppTheme.glassGradient,
-                      border: Border.all(
-                        color: isSelected ? Colors.transparent : Colors.white.withOpacity(0.2),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: controller.categories.length,
+                  itemBuilder: (context, index) {
+                    final category = controller.categories[index];
+                    final isSelected =
+                        controller.selectedCategory.value == category;
+
+                    return GestureDetector(
+                      onTap: () => controller.selectCategory(category),
+                      child: Container(
+                        margin: const EdgeInsets.only(right: 12),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 8),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          gradient: isSelected
+                              ? AppTheme.primaryGradient
+                              : AppTheme.glassGradient,
+                          border: Border.all(
+                            color: isSelected
+                                ? Colors.transparent
+                                : Colors.white.withOpacity(0.2),
+                          ),
+                        ),
+                        child: Text(
+                          category,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: isSelected
+                                ? FontWeight.w600
+                                : FontWeight.normal,
+                          ),
+                        ),
                       ),
-                    ),
-                    child: Text(
-                      category,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
-                      ),
-                    ),
-                  ),
-                );
-              },
-            )),
+                    );
+                  },
+                )),
           ),
         ],
       ),
@@ -131,11 +140,11 @@ class GalleryView extends GetView<GalleryController> {
         if (controller.isLoading.value) {
           return _buildLoadingState();
         }
-        
+
         if (controller.filteredArtworks.isEmpty) {
           return _buildEmptyState();
         }
-        
+
         return MasonryGridView.count(
           crossAxisCount: 2,
           crossAxisSpacing: 12,
@@ -156,7 +165,7 @@ class GalleryView extends GetView<GalleryController> {
   Widget _buildArtworkCard(artwork, int index) {
     // Vary card heights for masonry effect
     final height = 200.0 + (index % 3) * 50;
-    
+
     return GlassContainer(
       padding: const EdgeInsets.all(8),
       child: Column(
@@ -185,7 +194,9 @@ class GalleryView extends GetView<GalleryController> {
                         color: Colors.black.withOpacity(0.3),
                       ),
                       child: Icon(
-                        artwork.isFavorite ? Icons.favorite : Icons.favorite_border,
+                        artwork.isFavorite
+                            ? Icons.favorite
+                            : Icons.favorite_border,
                         color: artwork.isFavorite ? Colors.red : Colors.white,
                         size: 16,
                       ),

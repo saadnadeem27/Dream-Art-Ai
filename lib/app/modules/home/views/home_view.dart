@@ -60,7 +60,7 @@ class HomeView extends GetView<HomeController> {
                 ),
               ),
               const SizedBox(width: 12),
-              
+
               // Welcome Text
               Expanded(
                 child: Column(
@@ -84,7 +84,7 @@ class HomeView extends GetView<HomeController> {
                   ],
                 ),
               ),
-              
+
               // Notification Button
               GlassContainer(
                 padding: const EdgeInsets.all(12),
@@ -96,9 +96,9 @@ class HomeView extends GetView<HomeController> {
               ),
             ],
           ),
-          
+
           const SizedBox(height: 20),
-          
+
           // Search Bar
           GlassContainer(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
@@ -130,7 +130,8 @@ class HomeView extends GetView<HomeController> {
 
   Widget _buildBody() {
     return SingleChildScrollView(
-      padding: const EdgeInsets.symmetric(horizontal: AppConstants.defaultPadding),
+      padding:
+          const EdgeInsets.symmetric(horizontal: AppConstants.defaultPadding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -188,7 +189,8 @@ class HomeView extends GetView<HomeController> {
     );
   }
 
-  Widget _buildActionCard(String title, IconData icon, LinearGradient gradient, VoidCallback onTap) {
+  Widget _buildActionCard(String title, IconData icon, LinearGradient gradient,
+      VoidCallback onTap) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -278,22 +280,22 @@ class HomeView extends GetView<HomeController> {
           SizedBox(
             height: 200,
             child: Obx(() => ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: controller.featuredArtworks.length,
-              itemBuilder: (context, index) {
-                final artwork = controller.featuredArtworks[index];
-                return AnimationConfiguration.staggeredList(
-                  position: index,
-                  duration: const Duration(milliseconds: 375),
-                  child: SlideAnimation(
-                    horizontalOffset: 50.0,
-                    child: FadeInAnimation(
-                      child: _buildArtworkCard(artwork, index == 0),
-                    ),
-                  ),
-                );
-              },
-            )),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: controller.featuredArtworks.length,
+                  itemBuilder: (context, index) {
+                    final artwork = controller.featuredArtworks[index];
+                    return AnimationConfiguration.staggeredList(
+                      position: index,
+                      duration: const Duration(milliseconds: 375),
+                      child: SlideAnimation(
+                        horizontalOffset: 50.0,
+                        child: FadeInAnimation(
+                          child: _buildArtworkCard(artwork, index == 0),
+                        ),
+                      ),
+                    );
+                  },
+                )),
           ),
         ],
       ),
@@ -359,21 +361,22 @@ class HomeView extends GetView<HomeController> {
           ),
           const SizedBox(height: 16),
           Obx(() => Column(
-            children: controller.trendingPrompts.asMap().entries.map((entry) {
-              final index = entry.key;
-              final prompt = entry.value;
-              return AnimationConfiguration.staggeredList(
-                position: index,
-                duration: const Duration(milliseconds: 375),
-                child: SlideAnimation(
-                  verticalOffset: 50.0,
-                  child: FadeInAnimation(
-                    child: _buildPromptCard(prompt),
-                  ),
-                ),
-              );
-            }).toList(),
-          )),
+                children:
+                    controller.trendingPrompts.asMap().entries.map((entry) {
+                  final index = entry.key;
+                  final prompt = entry.value;
+                  return AnimationConfiguration.staggeredList(
+                    position: index,
+                    duration: const Duration(milliseconds: 375),
+                    child: SlideAnimation(
+                      verticalOffset: 50.0,
+                      child: FadeInAnimation(
+                        child: _buildPromptCard(prompt),
+                      ),
+                    ),
+                  );
+                }).toList(),
+              )),
         ],
       ),
     );
@@ -457,22 +460,22 @@ class HomeView extends GetView<HomeController> {
           SizedBox(
             height: 120,
             child: Obx(() => ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: controller.recentArtworks.length,
-              itemBuilder: (context, index) {
-                final artwork = controller.recentArtworks[index];
-                return AnimationConfiguration.staggeredList(
-                  position: index,
-                  duration: const Duration(milliseconds: 375),
-                  child: SlideAnimation(
-                    horizontalOffset: 50.0,
-                    child: FadeInAnimation(
-                      child: _buildRecentArtworkCard(artwork, index == 0),
-                    ),
-                  ),
-                );
-              },
-            )),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: controller.recentArtworks.length,
+                  itemBuilder: (context, index) {
+                    final artwork = controller.recentArtworks[index];
+                    return AnimationConfiguration.staggeredList(
+                      position: index,
+                      duration: const Duration(milliseconds: 375),
+                      child: SlideAnimation(
+                        horizontalOffset: 50.0,
+                        child: FadeInAnimation(
+                          child: _buildRecentArtworkCard(artwork, index == 0),
+                        ),
+                      ),
+                    );
+                  },
+                )),
           ),
         ],
       ),
@@ -499,41 +502,41 @@ class HomeView extends GetView<HomeController> {
       child: GlassContainer(
         padding: const EdgeInsets.symmetric(vertical: 8),
         child: Obx(() => BottomNavigationBar(
-          currentIndex: controller.currentTabIndex.value,
-          onTap: controller.onTabChanged,
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          selectedItemColor: AppTheme.primaryColor,
-          unselectedItemColor: Colors.white60,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined),
-              activeIcon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.auto_awesome_outlined),
-              activeIcon: Icon(Icons.auto_awesome),
-              label: 'Generate',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.explore_outlined),
-              activeIcon: Icon(Icons.explore),
-              label: 'Gallery',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.bookmark_outline),
-              activeIcon: Icon(Icons.bookmark),
-              label: 'Library',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline),
-              activeIcon: Icon(Icons.person),
-              label: 'Profile',
-            ),
-          ],
-        )),
+              currentIndex: controller.currentTabIndex.value,
+              onTap: controller.onTabChanged,
+              type: BottomNavigationBarType.fixed,
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              selectedItemColor: AppTheme.primaryColor,
+              unselectedItemColor: Colors.white60,
+              items: const [
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home_outlined),
+                  activeIcon: Icon(Icons.home),
+                  label: 'Home',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.auto_awesome_outlined),
+                  activeIcon: Icon(Icons.auto_awesome),
+                  label: 'Generate',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.explore_outlined),
+                  activeIcon: Icon(Icons.explore),
+                  label: 'Gallery',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.bookmark_outline),
+                  activeIcon: Icon(Icons.bookmark),
+                  label: 'Library',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.person_outline),
+                  activeIcon: Icon(Icons.person),
+                  label: 'Profile',
+                ),
+              ],
+            )),
       ),
     );
   }

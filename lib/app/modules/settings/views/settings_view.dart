@@ -65,9 +65,7 @@ class SettingsView extends GetView<SettingsController> {
               controller.toggleDarkMode,
             ),
           ]),
-          
           const SizedBox(height: 24),
-          
           _buildSection('Notifications', [
             _buildSwitchTile(
               'Push Notifications',
@@ -77,9 +75,7 @@ class SettingsView extends GetView<SettingsController> {
               controller.toggleNotifications,
             ),
           ]),
-          
           const SizedBox(height: 24),
-          
           _buildSection('Generation', [
             _buildSwitchTile(
               'High Quality Mode',
@@ -89,15 +85,14 @@ class SettingsView extends GetView<SettingsController> {
               controller.toggleHighQuality,
             ),
           ]),
-          
           const SizedBox(height: 24),
-          
           _buildSection('Account', [
             _buildActionTile(
               'Subscription',
               'Manage your premium subscription',
               Icons.star,
-              () => Get.snackbar('Coming Soon', 'Subscription management will be available soon'),
+              () => Get.snackbar('Coming Soon',
+                  'Subscription management will be available soon'),
             ),
             _buildActionTile(
               'Privacy Policy',
@@ -112,9 +107,7 @@ class SettingsView extends GetView<SettingsController> {
               () => Get.snackbar('Info', 'Terms of service would open here'),
             ),
           ]),
-          
           const SizedBox(height: 24),
-          
           _buildSection('Support', [
             _buildActionTile(
               'Help Center',
@@ -132,10 +125,10 @@ class SettingsView extends GetView<SettingsController> {
               'About',
               'App version and information',
               Icons.info,
-              () => Get.snackbar('Dream Art AI', 'Version 1.0.0\nBuilt with Flutter & AI'),
+              () => Get.snackbar(
+                  'Dream Art AI', 'Version 1.0.0\nBuilt with Flutter & AI'),
             ),
           ]),
-          
           const SizedBox(height: 50),
         ],
       ),
@@ -212,10 +205,10 @@ class SettingsView extends GetView<SettingsController> {
               ),
             ),
             Obx(() => Switch(
-              value: value.value,
-              onChanged: (v) => onToggle(),
-              activeColor: AppTheme.primaryColor,
-            )),
+                  value: value.value,
+                  onChanged: (v) => onToggle(),
+                  activeColor: AppTheme.primaryColor,
+                )),
           ],
         ),
       ),

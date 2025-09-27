@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import '../../../routes/app_pages.dart';
+import '../../home/views/home_view.dart';
 
 class SplashController extends GetxController {
   @override
@@ -9,8 +9,8 @@ class SplashController extends GetxController {
   }
 
   void _navigateToNextScreen() {
-    Future.delayed(const Duration(seconds: 3), () {
-      Get.offNamed(Routes.HOME); // Skip onboarding for now, go directly to home
+    Future.delayed(const Duration(seconds: 2), () {
+      Get.off(() => const HomeView()); // Direct navigation to home
     });
   }
 }

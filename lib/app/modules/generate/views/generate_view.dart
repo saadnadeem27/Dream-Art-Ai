@@ -102,19 +102,20 @@ class GenerateView extends GetView<GenerateController> {
               onChanged: controller.onPromptChanged,
               maxLines: 4,
               decoration: InputDecoration(
-                hintText: 'A magical forest with glowing mushrooms and fireflies dancing in the moonlight...',
+                hintText:
+                    'A magical forest with glowing mushrooms and fireflies dancing in the moonlight...',
                 hintStyle: TextStyle(
                   color: Colors.white60,
                   fontSize: 14,
                 ),
                 border: InputBorder.none,
                 counter: Obx(() => Text(
-                  '${controller.promptController.text.length}/${AppConstants.maxPromptLength}',
-                  style: TextStyle(
-                    color: Colors.white60,
-                    fontSize: 12,
-                  ),
-                )),
+                      '${controller.promptController.text.length}/${AppConstants.maxPromptLength}',
+                      style: TextStyle(
+                        color: Colors.white60,
+                        fontSize: 12,
+                      ),
+                    )),
               ),
               style: TextStyle(color: Colors.white, fontSize: 16),
               maxLength: AppConstants.maxPromptLength,
@@ -144,71 +145,78 @@ class GenerateView extends GetView<GenerateController> {
           SizedBox(
             height: 120,
             child: Obx(() => ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: controller.styles.length,
-              itemBuilder: (context, index) {
-                final style = controller.styles[index];
-                final isSelected = controller.selectedStyle.value?.id == style.id;
-                
-                return AnimationConfiguration.staggeredList(
-                  position: index,
-                  duration: const Duration(milliseconds: 375),
-                  child: SlideAnimation(
-                    horizontalOffset: 50.0,
-                    child: FadeInAnimation(
-                      child: GestureDetector(
-                        onTap: () => controller.selectStyle(style),
-                        child: Container(
-                          width: 100,
-                          margin: EdgeInsets.only(right: 12),
-                          child: Column(
-                            children: [
-                              Container(
-                                height: 80,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(12),
-                                  border: Border.all(
-                                    color: isSelected 
-                                        ? AppTheme.primaryColor 
-                                        : Colors.white.withOpacity(0.2),
-                                    width: isSelected ? 2 : 1,
-                                  ),
-                                  gradient: isSelected 
-                                      ? AppTheme.primaryGradient 
-                                      : AppTheme.glassGradient,
-                                ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(12),
-                                  child: CachedNetworkImage(
-                                    imageUrl: style.previewUrl,
-                                    fit: BoxFit.cover,
-                                    placeholder: (context, url) => ShimmerWidget(
-                                      child: Container(color: Colors.grey[300]),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: controller.styles.length,
+                  itemBuilder: (context, index) {
+                    final style = controller.styles[index];
+                    final isSelected =
+                        controller.selectedStyle.value?.id == style.id;
+
+                    return AnimationConfiguration.staggeredList(
+                      position: index,
+                      duration: const Duration(milliseconds: 375),
+                      child: SlideAnimation(
+                        horizontalOffset: 50.0,
+                        child: FadeInAnimation(
+                          child: GestureDetector(
+                            onTap: () => controller.selectStyle(style),
+                            child: Container(
+                              width: 100,
+                              margin: EdgeInsets.only(right: 12),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    height: 80,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(12),
+                                      border: Border.all(
+                                        color: isSelected
+                                            ? AppTheme.primaryColor
+                                            : Colors.white.withOpacity(0.2),
+                                        width: isSelected ? 2 : 1,
+                                      ),
+                                      gradient: isSelected
+                                          ? AppTheme.primaryGradient
+                                          : AppTheme.glassGradient,
+                                    ),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(12),
+                                      child: CachedNetworkImage(
+                                        imageUrl: style.previewUrl,
+                                        fit: BoxFit.cover,
+                                        placeholder: (context, url) =>
+                                            ShimmerWidget(
+                                          child: Container(
+                                              color: Colors.grey[300]),
+                                        ),
+                                      ),
                                     ),
                                   ),
-                                ),
+                                  const SizedBox(height: 8),
+                                  Text(
+                                    style.name,
+                                    style: TextStyle(
+                                      color: isSelected
+                                          ? AppTheme.primaryColor
+                                          : Colors.white,
+                                      fontSize: 12,
+                                      fontWeight: isSelected
+                                          ? FontWeight.w600
+                                          : FontWeight.normal,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ],
                               ),
-                              const SizedBox(height: 8),
-                              Text(
-                                style.name,
-                                style: TextStyle(
-                                  color: isSelected ? AppTheme.primaryColor : Colors.white,
-                                  fontSize: 12,
-                                  fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
-                                ),
-                                textAlign: TextAlign.center,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ],
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ),
-                );
-              },
-            )),
+                    );
+                  },
+                )),
           ),
         ],
       ),
@@ -232,56 +240,61 @@ class GenerateView extends GetView<GenerateController> {
           ),
           const SizedBox(height: 16),
           Obx(() => Row(
-            children: AppConstants.aspectRatios.asMap().entries.map((entry) {
-              final index = entry.key;
-              final ratio = entry.value;
-              final isSelected = controller.selectedAspectRatio.value == index;
-              
-              return Expanded(
-                child: GestureDetector(
-                  onTap: () => controller.selectAspectRatio(index),
-                  child: Container(
-                    margin: EdgeInsets.only(right: index < AppConstants.aspectRatios.length - 1 ? 8 : 0),
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(
-                        color: isSelected 
-                            ? AppTheme.primaryColor 
-                            : Colors.white.withOpacity(0.2),
-                        width: isSelected ? 2 : 1,
-                      ),
-                      gradient: isSelected 
-                          ? AppTheme.primaryGradient.createShader(const Rect.fromLTWH(0, 0, 100, 100)) != null
+                children:
+                    AppConstants.aspectRatios.asMap().entries.map((entry) {
+                  final index = entry.key;
+                  final ratio = entry.value;
+                  final isSelected =
+                      controller.selectedAspectRatio.value == index;
+
+                  return Expanded(
+                    child: GestureDetector(
+                      onTap: () => controller.selectAspectRatio(index),
+                      child: Container(
+                        margin: EdgeInsets.only(
+                            right: index < AppConstants.aspectRatios.length - 1
+                                ? 8
+                                : 0),
+                        padding: const EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(
+                            color: isSelected
+                                ? AppTheme.primaryColor
+                                : Colors.white.withOpacity(0.2),
+                            width: isSelected ? 2 : 1,
+                          ),
+                          gradient: isSelected 
                               ? AppTheme.primaryGradient 
-                              : null
-                          : AppTheme.glassGradient,
-                    ),
-                    child: Column(
-                      children: [
-                        Text(
-                          ratio['name'],
-                          style: TextStyle(
-                            color: isSelected ? Colors.white : Colors.white70,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w600,
-                          ),
+                              : AppTheme.glassGradient,
                         ),
-                        const SizedBox(height: 4),
-                        Text(
-                          ratio['ratio'],
-                          style: TextStyle(
-                            color: isSelected ? Colors.white : Colors.white60,
-                            fontSize: 10,
-                          ),
+                        child: Column(
+                          children: [
+                            Text(
+                              ratio['name'],
+                              style: TextStyle(
+                                color:
+                                    isSelected ? Colors.white : Colors.white70,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            const SizedBox(height: 4),
+                            Text(
+                              ratio['ratio'],
+                              style: TextStyle(
+                                color:
+                                    isSelected ? Colors.white : Colors.white60,
+                                fontSize: 10,
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
-                  ),
-                ),
-              );
-            }).toList(),
-          )),
+                  );
+                }).toList(),
+              )),
         ],
       ),
     );
@@ -293,7 +306,7 @@ class GenerateView extends GetView<GenerateController> {
       duration: const Duration(milliseconds: 600),
       child: Obx(() {
         if (controller.recentPrompts.isEmpty) return const SizedBox();
-        
+
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -313,7 +326,8 @@ class GenerateView extends GetView<GenerateController> {
                 return GestureDetector(
                   onTap: () => controller.useRecentPrompt(prompt),
                   child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       gradient: AppTheme.glassGradient,
@@ -323,7 +337,9 @@ class GenerateView extends GetView<GenerateController> {
                       ),
                     ),
                     child: Text(
-                      prompt.length > 30 ? '${prompt.substring(0, 30)}...' : prompt,
+                      prompt.length > 30
+                          ? '${prompt.substring(0, 30)}...'
+                          : prompt,
                       style: const TextStyle(
                         color: Colors.white,
                         fontSize: 12,
@@ -345,7 +361,7 @@ class GenerateView extends GetView<GenerateController> {
       duration: const Duration(milliseconds: 600),
       child: Obx(() {
         if (controller.generatedArtworks.isEmpty) return const SizedBox();
-        
+
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -415,8 +431,8 @@ class GenerateView extends GetView<GenerateController> {
             ),
           ),
           Text(
-            artwork.prompt.length > 50 
-                ? '${artwork.prompt.substring(0, 50)}...' 
+            artwork.prompt.length > 50
+                ? '${artwork.prompt.substring(0, 50)}...'
                 : artwork.prompt,
             style: TextStyle(
               color: Colors.white70,
@@ -512,7 +528,8 @@ class GenerateView extends GetView<GenerateController> {
                           LinearProgressIndicator(
                             value: controller.generationProgress.value,
                             backgroundColor: Colors.white.withOpacity(0.2),
-                            valueColor: const AlwaysStoppedAnimation<Color>(AppTheme.primaryColor),
+                            valueColor: const AlwaysStoppedAnimation<Color>(
+                                AppTheme.primaryColor),
                           ),
                         ],
                       ),
@@ -524,7 +541,7 @@ class GenerateView extends GetView<GenerateController> {
           ),
         );
       }
-      
+
       return Container(
         margin: const EdgeInsets.symmetric(horizontal: 16),
         child: GradientButton(

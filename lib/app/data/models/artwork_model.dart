@@ -33,7 +33,8 @@ class ArtworkModel {
       prompt: json['prompt'] ?? '',
       imageUrl: json['imageUrl'] ?? '',
       style: json['style'] ?? '',
-      createdAt: DateTime.parse(json['createdAt'] ?? DateTime.now().toIso8601String()),
+      createdAt:
+          DateTime.parse(json['createdAt'] ?? DateTime.now().toIso8601String()),
       width: json['width'] ?? 512,
       height: json['height'] ?? 512,
       isFavorite: json['isFavorite'] ?? false,

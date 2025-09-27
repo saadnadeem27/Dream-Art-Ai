@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../routes/app_pages.dart';
 import '../../../data/dummy_data.dart';
 import '../../../data/models/artwork_model.dart';
+import '../../generate/views/generate_view.dart';
+import '../../gallery/views/gallery_view.dart';
+import '../../library/views/library_view.dart';
+import '../../profile/views/profile_view.dart';
 
 class HomeController extends GetxController {
   final currentTabIndex = 0.obs;
   final searchController = TextEditingController();
   final isSearching = false.obs;
-  
+
   final featuredArtworks = <ArtworkModel>[].obs;
   final trendingPrompts = <String>[].obs;
   final recentArtworks = <ArtworkModel>[].obs;
@@ -34,38 +37,36 @@ class HomeController extends GetxController {
         // Stay on home
         break;
       case 1:
-        Get.toNamed(Routes.GENERATE);
+        Get.to(() => const GenerateView());
         break;
       case 2:
-        Get.toNamed(Routes.GALLERY);
+        Get.to(() => const GalleryView());
         break;
       case 3:
-        Get.toNamed(Routes.LIBRARY);
+        Get.to(() => const LibraryView());
         break;
       case 4:
-        Get.toNamed(Routes.PROFILE);
+        Get.to(() => const ProfileView());
         break;
     }
   }
 
   void navigateToGenerate() {
-    Get.toNamed(Routes.GENERATE);
+    Get.to(() => const GenerateView());
   }
 
   void navigateToGallery() {
-    Get.toNamed(Routes.GALLERY);
+    Get.to(() => const GalleryView());
   }
 
   void navigateToLibrary() {
-    Get.toNamed(Routes.LIBRARY);
-  }
-
-  void onSearchChanged(String query) {
+    Get.to(() => const LibraryView());
+  }  void onSearchChanged(String query) {
     isSearching.value = query.isNotEmpty;
   }
 
   void onPromptTap(String prompt) {
-    Get.toNamed(Routes.GENERATE, arguments: {'prompt': prompt});
+    Get.to(() => const GenerateView(), arguments: {'prompt': prompt});
   }
 
   @override

@@ -9,7 +9,7 @@ class GalleryController extends GetxController {
   final filteredArtworks = <ArtworkModel>[].obs;
   final isLoading = false.obs;
   final selectedCategory = 'All'.obs;
-  
+
   final categories = ['All', 'Featured', 'Trending', 'Recent', 'Popular'].obs;
 
   @override
@@ -20,12 +20,12 @@ class GalleryController extends GetxController {
 
   void loadArtworks() {
     isLoading.value = true;
-    
+
     // Simulate loading
     Future.delayed(const Duration(seconds: 1), () {
       artworks.value = List.from(DummyData.galleryArtworks);
       artworks.addAll(DummyData.myLibrary);
-      
+
       filteredArtworks.value = artworks;
       isLoading.value = false;
     });
@@ -37,24 +37,27 @@ class GalleryController extends GetxController {
     } else {
       filteredArtworks.value = artworks.where((artwork) {
         return artwork.prompt.toLowerCase().contains(query.toLowerCase()) ||
-               artwork.style.toLowerCase().contains(query.toLowerCase()) ||
-               artwork.tags.any((tag) => tag.toLowerCase().contains(query.toLowerCase()));
+            artwork.style.toLowerCase().contains(query.toLowerCase()) ||
+            artwork.tags
+                .any((tag) => tag.toLowerCase().contains(query.toLowerCase()));
       }).toList();
     }
   }
 
   void selectCategory(String category) {
     selectedCategory.value = category;
-    
+
     switch (category) {
       case 'All':
         filteredArtworks.value = artworks;
         break;
       case 'Featured':
-        filteredArtworks.value = artworks.where((art) => art.likes > 100).toList();
+        filteredArtworks.value =
+            artworks.where((art) => art.likes > 100).toList();
         break;
       case 'Trending':
-        filteredArtworks.value = artworks.where((art) => art.likes > 50).toList();
+        filteredArtworks.value =
+            artworks.where((art) => art.likes > 50).toList();
         break;
       case 'Recent':
         filteredArtworks.value = artworks
@@ -75,9 +78,10 @@ class GalleryController extends GetxController {
         likes: artwork.isFavorite ? artwork.likes - 1 : artwork.likes + 1,
       );
       artworks[index] = updatedArtwork;
-      
+
       // Update filtered list too
-      final filteredIndex = filteredArtworks.indexWhere((art) => art.id == artwork.id);
+      final filteredIndex =
+          filteredArtworks.indexWhere((art) => art.id == artwork.id);
       if (filteredIndex != -1) {
         filteredArtworks[filteredIndex] = updatedArtwork;
       }
