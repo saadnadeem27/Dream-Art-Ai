@@ -49,8 +49,7 @@ class StyleData {
           id: 'realistic',
           name: 'Realistic',
           description: 'Photo-realistic AI generated images',
-          previewUrl:
-              'https://picsum.photos/400/400?random=101',
+          previewUrl: 'https://picsum.photos/400/400?random=101',
           category: 'Photography',
           tags: ['realistic', 'photo', 'detailed'],
         ),
@@ -58,8 +57,7 @@ class StyleData {
           id: 'anime',
           name: 'Anime',
           description: 'Japanese animation style artwork',
-          previewUrl:
-              'https://picsum.photos/400/400?random=102',
+          previewUrl: 'https://picsum.photos/400/400?random=102',
           category: 'Animation',
           tags: ['anime', 'manga', 'japanese'],
         ),
@@ -67,8 +65,7 @@ class StyleData {
           id: 'watercolor',
           name: 'Watercolor',
           description: 'Soft, flowing watercolor painting style',
-          previewUrl:
-              'https://picsum.photos/400/400?random=103',
+          previewUrl: 'https://picsum.photos/400/400?random=103',
           category: 'Painting',
           tags: ['watercolor', 'soft', 'artistic'],
         ),
@@ -76,8 +73,7 @@ class StyleData {
           id: 'oil_painting',
           name: 'Oil Painting',
           description: 'Classical oil painting technique',
-          previewUrl:
-              'https://picsum.photos/400/400?random=104',
+          previewUrl: 'https://picsum.photos/400/400?random=104',
           category: 'Painting',
           tags: ['oil', 'classical', 'painting'],
         ),
@@ -85,8 +81,7 @@ class StyleData {
           id: 'digital_art',
           name: 'Digital Art',
           description: 'Modern digital artwork style',
-          previewUrl:
-              'https://picsum.photos/400/400?random=105',
+          previewUrl: 'https://picsum.photos/400/400?random=105',
           category: 'Digital',
           tags: ['digital', 'modern', 'art'],
         ),
@@ -94,8 +89,7 @@ class StyleData {
           id: 'sketch',
           name: 'Sketch',
           description: 'Hand-drawn sketch style',
-          previewUrl:
-              'https://picsum.photos/400/400?random=106',
+          previewUrl: 'https://picsum.photos/400/400?random=106',
           category: 'Drawing',
           tags: ['sketch', 'drawing', 'pencil'],
         ),
@@ -103,8 +97,7 @@ class StyleData {
           id: 'abstract',
           name: 'Abstract',
           description: 'Abstract artistic interpretation',
-          previewUrl:
-              'https://picsum.photos/400/400?random=107',
+          previewUrl: 'https://picsum.photos/400/400?random=107',
           category: 'Abstract',
           tags: ['abstract', 'artistic', 'creative'],
         ),
@@ -112,8 +105,7 @@ class StyleData {
           id: 'surreal',
           name: 'Surreal',
           description: 'Surrealistic dream-like imagery',
-          previewUrl:
-              'https://picsum.photos/400/400?random=108',
+          previewUrl: 'https://picsum.photos/400/400?random=108',
           category: 'Surreal',
           tags: ['surreal', 'dream', 'fantasy'],
           isPremium: true,
@@ -122,8 +114,7 @@ class StyleData {
           id: 'cyberpunk',
           name: 'Cyberpunk',
           description: 'Futuristic cyberpunk aesthetic',
-          previewUrl:
-              'https://picsum.photos/400/400?random=109',
+          previewUrl: 'https://picsum.photos/400/400?random=109',
           category: 'Futuristic',
           tags: ['cyberpunk', 'futuristic', 'neon'],
           isPremium: true,
@@ -132,8 +123,7 @@ class StyleData {
           id: 'vintage',
           name: 'Vintage',
           description: 'Retro vintage style artwork',
-          previewUrl:
-              'https://picsum.photos/400/400?random=110',
+          previewUrl: 'https://picsum.photos/400/400?random=110',
           category: 'Vintage',
           tags: ['vintage', 'retro', 'old'],
         ),

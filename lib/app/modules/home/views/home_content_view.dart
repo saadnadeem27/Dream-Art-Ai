@@ -131,7 +131,8 @@ class HomeContentView extends GetView<HomeController> {
 
   Widget _buildBody() {
     return SingleChildScrollView(
-      padding: const EdgeInsets.symmetric(horizontal: AppConstants.defaultPadding),
+      padding:
+          const EdgeInsets.symmetric(horizontal: AppConstants.defaultPadding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -190,7 +191,8 @@ class HomeContentView extends GetView<HomeController> {
     );
   }
 
-  Widget _buildActionCard(String title, IconData icon, Gradient gradient, VoidCallback onTap) {
+  Widget _buildActionCard(
+      String title, IconData icon, Gradient gradient, VoidCallback onTap) {
     return GestureDetector(
       onTap: onTap,
       child: Container(

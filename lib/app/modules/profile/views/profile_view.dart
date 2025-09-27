@@ -138,7 +138,7 @@ class ProfileView extends GetView<ProfileController> {
               text: 'Edit Profile',
               onPressed: controller.editProfile,
               width: 150,
-              height: 40,
+              height: 50,
             ),
           ],
         ),

@@ -36,7 +36,9 @@ class HomeController extends GetxController {
 
   void navigateToLibrary() {
     Get.find<MainController>().navigateToTab(3);
-  }  void onSearchChanged(String query) {
+  }
+
+  void onSearchChanged(String query) {
     isSearching.value = query.isNotEmpty;
   }
 

@@ -9,7 +9,7 @@ class AppTheme {
   static const Color backgroundColor = Color(0xFF0F0F23);
   static const Color surfaceColor = Color(0xFF1A1A2E);
   static const Color cardColor = Color(0xFF16213E);
-  
+
   // Additional Colors
   static const Color successColor = Color(0xFF10B981);
   static const Color warningColor = Color(0xFFEF4444);

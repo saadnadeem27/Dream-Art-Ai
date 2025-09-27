@@ -6,8 +6,7 @@ class DummyData {
           id: '1',
           prompt:
               'A majestic dragon soaring through a nebula filled with stars and cosmic dust, digital art style',
-          imageUrl:
-              'https://picsum.photos/800/600?random=1',
+          imageUrl: 'https://picsum.photos/800/600?random=1',
           style: 'Digital Art',
           createdAt: DateTime.now().subtract(const Duration(hours: 2)),
           width: 1024,
@@ -22,8 +21,7 @@ class DummyData {
           id: '2',
           prompt:
               'A serene Japanese garden with cherry blossoms and a traditional wooden bridge, watercolor painting',
-          imageUrl:
-              'https://picsum.photos/800/600?random=2',
+          imageUrl: 'https://picsum.photos/800/600?random=2',
           style: 'Watercolor',
           createdAt: DateTime.now().subtract(const Duration(hours: 5)),
           width: 768,
@@ -38,8 +36,7 @@ class DummyData {
           id: '3',
           prompt:
               'A cyberpunk cityscape at night with neon lights reflecting on wet streets',
-          imageUrl:
-              'https://picsum.photos/800/600?random=3',
+          imageUrl: 'https://picsum.photos/800/600?random=3',
           style: 'Cyberpunk',
           createdAt: DateTime.now().subtract(const Duration(hours: 8)),
           width: 1024,
@@ -54,8 +51,7 @@ class DummyData {
           id: '4',
           prompt:
               'An ethereal forest spirit with glowing blue eyes surrounded by magical fireflies',
-          imageUrl:
-              'https://picsum.photos/800/600?random=4',
+          imageUrl: 'https://picsum.photos/800/600?random=4',
           style: 'Fantasy',
           createdAt: DateTime.now().subtract(const Duration(days: 1)),
           width: 768,
@@ -70,8 +66,7 @@ class DummyData {
           id: '5',
           prompt:
               'A vintage portrait of a woman in 1920s fashion, oil painting style',
-          imageUrl:
-              'https://picsum.photos/800/600?random=5',
+          imageUrl: 'https://picsum.photos/800/600?random=5',
           style: 'Oil Painting',
           createdAt: DateTime.now().subtract(const Duration(days: 1, hours: 3)),
           width: 512,
@@ -86,8 +81,7 @@ class DummyData {
           id: '6',
           prompt:
               'Abstract geometric patterns in vibrant colors inspired by Mondrian',
-          imageUrl:
-              'https://picsum.photos/800/600?random=6',
+          imageUrl: 'https://picsum.photos/800/600?random=6',
           style: 'Abstract',
           createdAt: DateTime.now().subtract(const Duration(days: 2)),
           width: 1024,
@@ -104,8 +98,7 @@ class DummyData {
         ArtworkModel(
           id: 'my1',
           prompt: 'A cozy cabin in a snowy forest during winter twilight',
-          imageUrl:
-              'https://picsum.photos/800/600?random=7',
+          imageUrl: 'https://picsum.photos/800/600?random=7',
           style: 'Realistic',
           createdAt: DateTime.now().subtract(const Duration(hours: 1)),
           width: 1024,
@@ -119,8 +112,7 @@ class DummyData {
         ArtworkModel(
           id: 'my2',
           prompt: 'Anime-style character with purple hair in a magical forest',
-          imageUrl:
-              'https://picsum.photos/800/600?random=8',
+          imageUrl: 'https://picsum.photos/800/600?random=8',
           style: 'Anime',
           createdAt: DateTime.now().subtract(const Duration(hours: 4)),
           width: 768,
@@ -134,8 +126,7 @@ class DummyData {
         ArtworkModel(
           id: 'my3',
           prompt: 'Steampunk airship floating above Victorian London',
-          imageUrl:
-              'https://picsum.photos/800/600?random=9',
+          imageUrl: 'https://picsum.photos/800/600?random=9',
           style: 'Steampunk',
           createdAt: DateTime.now().subtract(const Duration(days: 1)),
           width: 1024,
@@ -172,32 +163,28 @@ class DummyData {
   static List<Map<String, dynamic>> get featuredArtists => [
         {
           'name': 'Alex Chen',
-          'avatar':
-              'https://picsum.photos/100/100?random=10',
+          'avatar': 'https://picsum.photos/100/100?random=10',
           'followers': 12500,
           'artworks': 234,
           'badge': 'Master Artist',
         },
         {
           'name': 'Maria Rodriguez',
-          'avatar':
-              'https://picsum.photos/100/100?random=11',
+          'avatar': 'https://picsum.photos/100/100?random=11',
           'followers': 8900,
           'artworks': 156,
           'badge': 'Rising Star',
         },
         {
           'name': 'David Kim',
-          'avatar':
-              'https://picsum.photos/100/100?random=12',
+          'avatar': 'https://picsum.photos/100/100?random=12',
           'followers': 15200,
           'artworks': 378,
           'badge': 'AI Pioneer',
         },
         {
           'name': 'Sarah Johnson',
-          'avatar':
-              'https://picsum.photos/100/100?random=13',
+          'avatar': 'https://picsum.photos/100/100?random=13',
           'followers': 6700,
           'artworks': 98,
           'badge': 'Creative Mind',
@@ -207,8 +194,7 @@ class DummyData {
   static Map<String, dynamic> get userProfile => {
         'name': 'John Doe',
         'email': 'john.doe@example.com',
-        'avatar':
-            'https://picsum.photos/200/200?random=14',
+        'avatar': 'https://picsum.photos/200/200?random=14',
         'isPremium': false,
         'joinDate': DateTime.now().subtract(const Duration(days: 30)),
         'artworksCreated': 23,
